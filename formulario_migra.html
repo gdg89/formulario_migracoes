@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Formulario Migrações</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="js.js"></script>
+	<script src="https://kit.fontawesome.com/37a1851c34.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div id="container_gral"><!-- Estructurando forulario "Solicitud de Recidencia por Mercosur" de la Policia Federal -->
+		<header>
+			<div>
+			<h1>Autorização de Residência</h1>
+			<p>SISMIGRA - Sistema de Registro Nacional Migratório</p>
+			</div>
+			<a href="https://servicos.dpf.gov.br/sismigra-internet/faces/publico/tipoSolicitacao/acordoPermanenciaRegistroEmissaoCie.seam" target="_blank">Site Oficial</a>
+
+		</header>
+		<form name="myform">
+			<fieldset><!-- Dados Pessoais -->
+				<legend>Dados Pessoais</legend>
+				<div class="cont_campos"> <!--Campo Acordos e Tratados -->
+				 <label for="tipodoc_1">Tipo</label>
+					 <select id="tipodoc_1" class="tipodoc1" autofocus="autofocus" name="acordos" onblur="campo_obl()">
+					 	<option  value="nada">-- Acordos e Tratados --</option>
+					 	<option value="mercosul">MERCOSUL</option>
+					 	<option value="refugiado">Refugiado</option>
+					 	<option value="estudos">Estudos</option>
+					 	<option value="familiar">Reunião Familiar</option>
+					 	<option value="outros">Outros</option>
+					 </select>
+					 <label id="co_tipodoc" class="campo_obligatorio" for="tipodoc_1">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!--Campo Nome -->
+				 	<label for="nome_1">Nome:</label>
+				 	<input type="text" id="nome_1" class="nome1 campo_obl_1" name="nome" onblur="campo_obl1()" autocomplete="off" required="required">
+					<span class="sem_abr">Sem abreviaturas</span>
+					<label id="co_nome" class="campo_obligatorio" for="">Campo obligatorio</label>
+
+				</div>
+				<div class="cont_campos"><!-- Campo Sobrenome -->
+				 <label for="sobrenome_1">Sobrenome:</label>
+				 	<input type="text" id="sobrenome_1" class="sobrenome1" name="sobrenome" onblur="campo_obl2()" autocomplete="off" required="required">
+				    <span class="sem_abr">Sem abreviaturas</span>
+				    <div class="sem_sbn">
+						<label  for="sem_sbn_1">Sem Sobrenome</label>
+					 	<input type="checkbox" id="sem_sbn_1" name="sem_sbn" onclick="desbld()">
+					</div>
+					<label id="co_sobnome" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<label class="nme_c">Nome Completo:</label>	
+				<div class="cont_campo nac"><!-- Campo Nome Completo -->
+				 	<label for="nm_compl_1">Nome Anterior Completo:</label>
+				 	<input type="text" id="nm_compl_1" class="nm_compl1" name="nm_compl" onblur="campo_obl3()"  autocomplete="off" required="required">
+				 	<label id="co_nom_compl" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Campo Nome Social -->
+				 	<label for="nm_social_1">Desejo incluir nome social</label>
+				 	<input type="checkbox" id="nm_social_1" class="nm_social1" onclick="popUpnm()" name="nm_scocial">
+				 	<i class="fas fa-question fa-2x" title="Nos termos do Decreto nº 8.727/2016, que dispõe sobre o nome social e reconhecimento da identidade de gênero de pessoas travestis e transexuais, é possível a inclusão, caso expressamente solicitada pelo requerente, do NOME SOCIAL, como designação pela qual a pessoa travesti ou transexual se identifica e é socialmente reconhecida, acompanhado do nome civil. "></i>
+				 	<div id="nome_scl_1">
+				 		<label>Nome Social:</label>
+				 		<input type="text" id="nm_sc_1" class="nome_social1" name="nome_social">
+				 	</div>
+				 	<!-- pop up -->
+				 	<div id="wrapper_popup">
+				 	<div id="cont_popup">
+				 		<h2>Nome Social:</h2>
+				 		<p>Nos termos do Decreto nº 8.727/2016, que dispõe sobre o nome social e reconhecimento da identidade de gênero de pessoas travestis e transexuais, é possível a inclusão, caso expressamente solicitada pelo requerente, do NOME SOCIAL, como designação pela qual a pessoa travesti ou transexual se identifica e é socialmente reconhecida, acompanhado do nome civil. Deseja solicitar a inclusão do nome social no documento de identificação? (SIM ou NÃO).</p>
+				 		<div id="cont_button">
+				 		<button type="button" id="btn_sim" onclick="btnSim()">SIM</button>
+				 		<button type="button" id="btn_nao" onclick="btnNao()">NÃO</button>
+				 		</div>
+				 	</div>
+				 	</div>
+				</div>
+				<div id="sexo_1" class="cont_campos"><!-- Campo Sexo -->
+				 	<label for="genero_1">Sexo:</label>
+				 	<div id="genero_1">
+					 	<input type="radio" id="masculino_1" class="masculino1" name="op_sex" value="masculino">
+					 	<label for="masculino_1">Masculino</label>
+						<input type="radio" id="feminino_1" class="femminino1" name="op_sex" value="feminino">
+						<label for="feminino_1">Feminino</label>
+						<input type="radio" id="ndec_1" class="ndec1" name="op_sex" value="nao_declara">
+						<label for="ndec_1">Não Declarado</label>
+						<label class="campo_obligatorio" for="">Campo obligatorio</label>
+					</div>
+					
+				</div>
+				<div class="cont_campos"><!-- Campo cond. pessoais -->
+				 	<label for="cond_pessoais_1">Condições pessoais:</label>
+					 <select id="cond_pessoais_1" class="cond_pessoais1" onblur="campo_obl4()" name="cond_pessoais">
+					 	<option value="nada">-- Selecione --</option>
+					 	<option value="nenhuma">Nenhuma</option>
+					 	<option value="gestante">Gestante</option>
+					 	<option value="lactante">Lactante</option>
+					 	<option value="obeso">Obeso</option>
+					 	<option value="maior_60">Pessoa com idade igual ou superior à 60 anos </option>
+					 	<option value="deficiência">Pessoa com deficiência</option>
+					 	<option value="criança_colo">Pessoa com criança de colo</option>
+					 </select>
+					 <label id="co_cond_p" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Campo data nascimento -->
+				 	<label for="dt_nascimento_1">Data de Nascimento:</label>
+				 	<input type="date" id="dt_nascimento_1" class="dt_nascimento1" onblur="campo_dtnac()"  name="dt_nascimento" required="required">
+				 	<label id="codata_1" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Capo Estado Civil -->
+				 	<label for="estado_civil_1">Estado Civil</label>
+					 <select id="estado_civil_1" class="estado_civil1" name="est_civil" onblur="campo_obl5()">
+					 	<option value="nada">-- Selecione --</option>
+					 	<option value="solteiro">Solteiro</option>
+					 	<option value="casado">Casado</option>
+					 	<option value="separado_judicalmente">Separado Judicialmente</option>
+					 	<option value="divorciado">Divorciado</option>
+					 	<option value="viuvo">Viuvo</option>
+					 	<option value="desquitado">Desquitado</option>
+					 	<option value="outros">Outros</option>
+					 	<option value="separado_concensualmente">Separado Consensualmente</option>
+					 	<option value="desconhecido">Desconhecido</option>
+					 </select>
+					<label id="co_estCivil" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Campo Cidade de Nascimenito -->
+				 	<label for="">Cidade de Nascimento:</label>
+				 	<input type="text" id="cidade_nasc_1" class="cidade_nasc1" name="cidade_nasc" onblur="campo_obl6()" autocomplete="off" required="required">
+				 	<label id="cidNasc" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Campo Pais de Nascimento -->
+					 <label for="pais_nascimento_1">Pais de Nascimento</label>
+					 <select id="pais_nascimento_1" class="pais_nascimento1" name="pais_nascimento" onblur="campo_obl7()">
+						 <option value="nada">-- Selecione --</option>
+						 <option value="argentina">Argentina	</option>
+						 <option value="bolivia">Bolívia</option>
+						 <option value="brasil">Brasil</option>
+						 <option value="chile">Chile</option>
+						 <option value="colombia">Colômbia</option>
+						 <option value="ecuador">Equador</option>
+						 <option value="paraguai">Paraguai</option>
+						 <option value="peru">Peru</option>
+						 <option value="guiana_francesa">Guiana Francesa</option>
+						 <option value="guiana">Guiana</option>
+						 <option value="suriname">Suriname</option>
+						 <option value="uruguai">Uruguai</option>
+						 <option value="venezuela">Venezuela</option>
+						</select>
+						<label id="co_paisNasc" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Pais de Nacionalidade -->
+					<label for="pais_nac_1">Pais de Nacionalidade</label>
+					<select id="pais_nac_1" class="pais_nac1" name="pais_nac" onblur="campo_obl8()">
+						<option value="nada">-- Selecione --</option>
+						<option value="argentina">Argentina	</option>
+						<option value="bolivia">Bolívia</option>
+						<option value="brasil">Brasil</option>
+						<option value="chile">Chile</option>
+						<option value="colombia">Colômbia</option>
+						<option value="ecuador">Equador</option>
+						<option value="paraguai">Paraguai</option>
+						<option value="peru">Peru</option>
+						<option value="guiana_francesa">Guiana Francesa</option>
+						<option value="guiana">Guiana</option>
+						<option value="suriname">Suriname</option>
+						<option value="uruguai">Uruguai</option>
+						<option value="venezuela">Venezuela</option>
+					</select>
+					<label id="co_nasc" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Campo email -->
+				 	<label for="email_1">E-mail Pessoal:</label>
+				 	<input type="email" id="email_1" class="email1" name="email" placeholder="Digite seu e-mail" onblur="campo_obl9()" autocomplete="off" required="required">
+				 	<label id="co_email" class="campo_obligatorio" for="">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Campo Ocupacao -->
+					<label id="ocupa" for="ocupacao_1">Ocupação Principal:</label>
+					<textarea id="ocupacao_1" class="ocupacao1" name="ocupacao"onblur="campo_obl10()" placeholder="Descreva sua profissão ou ocupação atual"></textarea>
+					<label id="co_ocupa_1" class="campo_obligatorio" for="ocupacao_1">Campo obligatorio</label>
+				</div>
+				<div class="cont_campos"><!-- Campo CPF -->
+				 	<label for="num_cpf">CPF (Cadastro de Pessoa Fisica):</label>
+				 	<input id="num_cpf" class="campo_cpf campo_obl_1" type="text" placeholder="Digite seu CPF" maxlength="11" minlength="11" onblur="check_numb()" ondblclick="clear_camp()" required="required" autocomplete="off"><br>
+						<label id="validation" for="num_cpf" class="cpf_val"></label>
+				</div>
+			</fieldset>
+			<fieldset><!-- Filiação 1 -->
+				<legend>Filiação 1</legend>
+				  <div>
+					<label for="nome_fil_1">Nome</label>
+					<input type="text" id="nome_fil_1" class="nome_fil1"  name="nomefil1" onblur="campo_obl11()" required="required" autocomplete="off">
+					<input type="checkbox" id="sem_fil_1" onclick="desbldSem1()" name="semfil1">
+					<label for="sem_fil_1" class="sem_fil">Sem Filiação</label>
+					<label id="co_fil1" class="campo_obligatorio" for="">Campo obligatorio</label>
+				  </div>
+				  <div id="sexo_fil_1">
+					  <label for="genero_fil_1">Sexo</label>
+				      <div id="genero_fil_1">
+					  	<input type="radio" id="masculino_fil1" name="sexo_fil" value="masculino">
+				  	 	<label for="masculino_fil1"> Masculino</label>
+					  	<input type="radio" id="feminino_fil1" name="sexo_fil" value="feminino">
+				  	 	<label for="feminino_fil1"> Feminino</label>
+					  	<input type="radio" id="no_declarado_fil1" name="sexo_fil" value="nao_declarado">
+					  	<label for="no_declarado_fil1"> Não Declarado</label>
+					  	<label class="campo_obligatorio" for="">Campo obligatorio</label>
+				  	  </div>
+				  	  
+				  </div>
+			</fieldset>
+			<fieldset><!-- Filiação 2 -->
+				<legend>Filiação 2</legend>
+				  <div>
+					<label for="nome_fil_2">Nome</label>
+					<input type="text" id="nome_fil_2" class="nome_fil2" name="nomefil2" onblur="campo_obl12()" required="required" autocomplete="off">
+					<input type="checkbox" id="sem_fil_2" onclick="desbldSem2()" name="semfil2">
+					<label for="sem_fil_2" class="sem_fil">Sem Filiação</label>
+					<label id="co_fil2"  class="campo_obligatorio" for="">Campo obligatorio</label>
+				  </div>
+				  <div id="sexo_fil_2">
+				  	<label for="genero_fil_2">Sexo</label>
+					  	<div id="genero_fil_2">
+							<input type="radio" id="masculino_fil2" name="sexo_fil2" value="masculino">
+						  	<label for="masculino_fil2"> Masculino</label>
+						  	<input type="radio" id="feminino_fil2" name="sexo_fil2" value="feminino">
+						  	<label for="feminino_fil2"> Feminino</label>
+						  	<input type="radio" id="no_declarado_fil2" name="sexo_fil2" value="nao_declarado">
+						  	<label for="no_declarado_fil2"> Não Declarado</label>
+						  	<label class="campo_obligatorio" for="">campo obligatorio</label>
+					  	 </div>
+					  	 
+				  </div>
+			</fieldset>
+			
+			<div class="wrapper_button">
+				<button type="submit" id="submit_1" class="submit1" onclick="envio()">Enviar</button> <!-- Submit -->
+			</div>
+			
+		</form>
+		<footer>
+			<p>Copyright Polícia Federal - PF, Diretoria de Tecnologia da Informação e Inovação - DTI</p>
+		</footer>
+
+
+	</div>
+</body>
+</html>
